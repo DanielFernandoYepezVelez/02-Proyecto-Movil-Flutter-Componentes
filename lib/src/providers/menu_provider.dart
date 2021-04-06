@@ -10,10 +10,10 @@ class _MenuProvider {
 
   /* No Puedo Tener Constructores Asyncronos */
   _MenuProvider() {
-    cargarData();
+    // cargarData();
   }
 
-  /* Cuando Trabajo Con Async-Await Lo Que Hago Es Retornar Un Future */
+  /* Cuando Trabajo Con Tareas Asincronas Lo Que Hago Es Retornar Un Future */
   /* Future => Es Retornar Una Tarea Que Se Va A Resolver En Un Futuro */
   /* Lo Anterior Permite Trabajar En Un StatelessWidget Con Algo Llamado El
      Future.builder(), Es Decir, Que Se Construya Cuando Se Termine El
@@ -31,7 +31,7 @@ class _MenuProvider {
     /* AQUI UTILIZAMOS ASYNC - AWAIT */
     final resp = await rootBundle.loadString('data/menu_opts.json');
     Map dataMap = json.decode(resp);
-    print('Rutas Promesa => ${dataMap['rutas']}');
+    // print('Rutas Promesa => ${dataMap['rutas']}');
     opciones = dataMap['rutas'];
 
     return opciones;
