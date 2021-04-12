@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       // home: HomePage();
       initialRoute: '/',
 
-      /* Rutas Definidas En La Aplicación */
+      /* Rutas Definidas En Toda La Aplicación */
       routes: getApplicationRoutes(),
 
       /* Rutas Dinámicas En La Aplicación, Es Decir, No Estan Definidas Desde 
@@ -29,6 +29,8 @@ class MyApp extends StatelessWidget {
         print(
             'Aqui Tenemos El Nombre De La Ruta A La Cual Se LLamo ${settings.name}');
 
+        /* Aquí Estamos Retornando Una Ruta Que Sería La Pantalla De CardPage()
+          Para La Ruta Dinámica */
         return MaterialPageRoute(builder: (BuildContext context) => CardPage());
       },
     );

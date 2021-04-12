@@ -7,6 +7,8 @@ class AlertPage extends StatelessWidget {
         appBar: AppBar(title: Text('Alert Page')),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add_location),
+
+          // Navigate.pop(context) Para Cerrar La Pantalla Alert Cuando Se Haga Click En El Button
           onPressed: () => Navigator.pop(context),
         ));
   }

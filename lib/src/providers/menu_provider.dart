@@ -29,6 +29,8 @@ class _MenuProvider {
     }); */
 
     /* AQUI UTILIZAMOS ASYNC - AWAIT */
+    /* Este Es El Ultimo Future Que Interactua Con El Future Builder
+      De HomePage() */
     final resp = await rootBundle.loadString('data/menu_opts.json');
     Map dataMap = json.decode(resp);
     // print('Rutas Promesa => ${dataMap['rutas']}');

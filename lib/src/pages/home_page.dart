@@ -20,6 +20,13 @@ class HomePage extends StatelessWidget {
     Por Que Mi ListView Ya Se Ha Creado */
     // print('Opciones De La Lista => ${menuProvider.opciones}');
 
+    /* La Alternativa De Las Promesas O Async-Awiat En Este Punto 
+      No Es Viable Por Que Puede Hacer Parecer A Nuestra Aplicación 
+      Lenta O Congelada Mientras Carga La Data. Por Eso Escogimos 
+      Otra Opción */
+
+    /* Permite Redibujarse Asi Mismo, Despues De La Ultima Interacción 
+      Con Un Future */
     return FutureBuilder(
       future: menuProvider.cargarData(),
       initialData: [],
@@ -34,6 +41,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  /* Aquí Se Crean Los Items De La Lista */
   List<Widget> _listaItems(List<dynamic> data, BuildContext context) {
     final List<Widget> itemsFinales = [];
 
@@ -47,7 +55,7 @@ class HomePage extends StatelessWidget {
           /* final route = MaterialPageRoute(builder: (context) => AlertPage());
           Navigator.push(context, route); */
 
-          /* Ruta Más Sencilla */
+          /* Ruta Más Sencilla Todavía */
           Navigator.pushNamed(context, item['ruta']);
         },
       );

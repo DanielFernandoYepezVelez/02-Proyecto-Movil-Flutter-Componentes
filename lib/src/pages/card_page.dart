@@ -50,7 +50,7 @@ Widget _cardTipo2() {
   return Card(
     child: Column(
       children: [
-        /* Para Cargar El Loading De Las Imagenes.
+        /* Para Cargar El Loading De Las Imagenes(FadeInImage).
           Tiene Una Propiedad Que Se LLama Placeholder:
           Es La Imagen Que Deberia Estar Fisicamente En
           El Dispositivo, Por Que Cargaria De Forma Instantanea
