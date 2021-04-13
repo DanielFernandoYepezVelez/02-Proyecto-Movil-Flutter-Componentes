@@ -9,13 +9,27 @@ class CardPage extends StatelessWidget {
         padding: EdgeInsets.all(10.0),
         /* Para Tener Mas Control De La Ubicación De La Tarjeta */
         // padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 10.0),
-        children: [_cardTipo1(), SizedBox(height: 30.0), _cardTipo2()],
+        children: [
+          _cardTipo1(),
+          SizedBox(height: 30.0),
+          _cardTipo2(),
+          SizedBox(height: 30.0),
+          _cardTipo1(),
+          SizedBox(height: 30.0),
+          _cardTipo2(),
+          SizedBox(height: 30.0),
+          _cardTipo1(),
+          SizedBox(height: 30.0),
+          _cardTipo2()
+        ],
       ),
     );
   }
 
   Widget _cardTipo1() {
     return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Column(
         children: [
           ListTile(
@@ -47,7 +61,16 @@ class CardPage extends StatelessWidget {
 }
 
 Widget _cardTipo2() {
+  /* Asi Deberia Ser Si Se Utiliza La Forma Alternativa Que Tenemos En La Parte Inferior */
+  // final card = Container();
+
   return Card(
+    elevation: 10.0,
+    /* Sombras Para La Card (TextShadow) */
+    clipBehavior: Clip.antiAlias,
+    /* Se Afecte Lo Que Tenemos Dentro Del Card */
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+    /* Border Radius */
     child: Column(
       children: [
         /* Para Cargar El Loading De Las Imagenes(FadeInImage).
@@ -75,5 +98,23 @@ Widget _cardTipo2() {
             child: Text('Guatape, Municipio De Antioquia'))
       ],
     ),
+  );
+
+  /* Con El Elevation, El clipBehavior Y Shape Funciona Correctamente.
+    Pero Lo Voy Hacer De La Forma Larga Como El Instructor Para
+    Tener Otra Alternativa
+   */
+  /* return */ Container(
+    decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20.0),
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+              color: Colors.black26,
+              blurRadius: 10.0,
+              spreadRadius: 2.0,
+              offset: Offset(2.0, 10.0))
+        ]),
+    child: ClipRRect(/*child:  card */), // Para Recortar
   );
 }
