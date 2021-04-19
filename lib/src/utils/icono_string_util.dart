@@ -5,7 +5,9 @@ final Map<String, IconData> _icons = {
   'accessibility': Icons.accessibility,
   'folder_open': Icons.folder_open,
   'donut_large': Icons.donut_large,
-  'input': Icons.input
+  'input': Icons.input,
+  'tune': Icons.tune,
+  'list': Icons.list
 };
 
 Icon getIcon(String nombreIcono) {

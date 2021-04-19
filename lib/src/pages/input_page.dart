@@ -9,6 +9,8 @@ class _InputPageState extends State<InputPage> {
   String _nombre = '';
   String _email = '';
   String _fecha = '';
+  String _opcionSeleccionada = 'Volar';
+  List<String> _poderes = ['Volar', 'Super Fuerza', 'Rayos X', 'Super Aliento'];
 
   /* Me Permite Mantener Una Relación Con La Caja De Texto,
   Es Decir, Cambiar Sus Propiedades De Forma Dinámica En Otros Lugares
@@ -31,6 +33,8 @@ class _InputPageState extends State<InputPage> {
           _crearPassword(),
           Divider(),
           _crearFecha(context),
+          Divider(),
+          _crearDropDown(),
           _crearPersona()
         ],
       ),
@@ -123,10 +127,44 @@ class _InputPageState extends State<InputPage> {
     }
   }
 
+  List<DropdownMenuItem<String>> getOpcionesDropDown() {
+    List<DropdownMenuItem<String>> lista = [];
+
+    _poderes.forEach((poder) {
+      lista.add(DropdownMenuItem(
+        child: Text(poder),
+        value: poder,
+      ));
+    });
+
+    return lista;
+  }
+
+  Widget _crearDropDown() {
+    return Row(
+      children: [
+        Icon(Icons.select_all),
+        SizedBox(width: 30.0),
+        Expanded(
+          child: DropdownButton(
+            value: _opcionSeleccionada,
+            items: getOpcionesDropDown(),
+            onChanged: (opt) {
+              setState(() {
+                _opcionSeleccionada = opt;
+              });
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _crearPersona() {
     return ListTile(
       title: Text('Nombre Es: $_nombre'),
       subtitle: Text('Email Es: $_email'),
+      trailing: Text(_opcionSeleccionada),
     );
   }
 }
